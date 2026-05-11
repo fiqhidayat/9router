@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  9router:
+    build: .
+    container_name: 9router
+    restart: always
+    ports:
+      - "20128:20128"
+    env_file:
+      - .env
+    volumes:
+      - 9router-data:/app/data
+      - 9router-config:/app/data-home
+      - 9router-lib:/var/lib/9router
+
+volumes:
+  9router-data:
+  9router-config:
+  9router-lib:
